@@ -34,7 +34,8 @@
       const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
       progress.value = duration ? Math.round(audio.currentTime / duration * 1000) : 0;
       time.textContent = `${format(audio.currentTime)} / ${format(duration)}`;
-      toggle.textContent = audio.paused ? '▶' : 'Ⅱ';
+      toggle.textContent = '';
+      toggle.classList.toggle('is-playing', !audio.paused);
       toggle.setAttribute('aria-label', audio.paused ? 'Play' : 'Pause');
     };
 

@@ -873,3 +873,40 @@ body.film .custom-audio-player button,
     transform: scale(1.4) !important;
   }
 }
+
+
+/* Mobile Safari fix: draw the custom play/pause icon with CSS so iOS cannot
+   substitute the play character with its blue emoji-style button. */
+.works-page .media-toggle,
+.film-page .media-toggle{
+  font-size:0!important;
+  position:relative;
+}
+.works-page .media-toggle::before,
+.film-page .media-toggle::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:0;
+  height:0;
+  border-top:6px solid transparent;
+  border-bottom:6px solid transparent;
+  border-left:10px solid currentColor;
+  transform:translate(-42%,-50%);
+}
+.works-page .media-toggle.is-playing::before,
+.film-page .media-toggle.is-playing::before{
+  width:10px;
+  height:12px;
+  border:0;
+  transform:translate(-50%,-50%);
+  background:linear-gradient(to right,currentColor 0 3px,transparent 3px 7px,currentColor 7px 10px);
+}
+
+@media (max-width:767px){
+  /* Keep the Bio layout unchanged; only shift the crop so the face is more central. */
+  .bio figure img{
+    object-position:72% center;
+  }
+}
