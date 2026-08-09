@@ -1,0 +1,875 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
+:root{--ink:#171717;--muted:#6d6d6d;--pad:79px}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;min-width:0;overflow:hidden;background:#fff;color:var(--ink)}
+body{font-family:"Geist",Arial,sans-serif;font-size:19px;font-weight:100}
+a{display:inline-block;color:inherit;text-decoration:none;transform-origin:left center;transition:opacity .2s,transform .2s}
+a:hover,a:focus-visible{opacity:.6;transform:translateX(2px) scale(1.1)}
+.home{width:1394px;height:1000px;display:grid;place-items:center}.home-lockup{display:flex;align-items:center;gap:105px;margin-top:10px}
+.name{width:187px;text-align:center}.name h1{font-size:40px;line-height:1.1;letter-spacing:-1.65px;font-weight:100;margin:0}.name p{font-size:19px;line-height:1.2;font-weight:100;font-style:italic;color:#777;margin:13px 0 0;white-space:nowrap}
+.home nav{display:flex;flex-direction:column;align-items:flex-start;gap:26px;font-size:19px;line-height:1.2;font-weight:400;letter-spacing:-.35px}
+.page{position:relative;width:1394px;height:1000px;overflow:hidden;padding:50px 79px 44px}.page>h1{font-size:40px;line-height:1.2;font-weight:100;letter-spacing:-.8px;margin:0 0 45px}.corner-link{position:absolute;left:79px;bottom:30px;font-size:26px;font-weight:200}
+
+/* Bio — exact screenshot canvas. */
+.page.bio{padding:52px 87px 38px}.page.bio>h1{font-size:46px;line-height:1.1;letter-spacing:-1px;margin:0}.bio-layout{display:block}.bio figure{position:absolute;left:82px;top:213px;width:812px;margin:0}.bio figure img{display:block;width:100%;height:541px;object-fit:cover}.bio figcaption{text-align:center;color:#777;font-size:15px;line-height:1.2;font-style:italic;margin-top:10px}.bio section{position:absolute;left:972px;top:118px;width:326px;font-size:20px;line-height:1.77}.bio section p{margin:0 0 20px}.bio strong{font-weight:100}.bio section>a{font-size:30px;line-height:1.2;font-weight:200;margin-top:5px}.bio>.corner-link{left:87px;bottom:37px;font-size:30px}
+
+/* Works — approved compact controls, evenly distributed. */
+.works-page{padding:50px 57px 36px}.works-page>h1{margin-bottom:50px}.works-grid{display:grid;grid-template-rows:repeat(5,1fr);height:690px;width:670px}.works-grid article{display:flex;flex-direction:column;justify-content:center}.works-grid h2,.credit h2{font-size:21px;line-height:1.3;font-weight:200;margin:0 0 4px}.works-grid p,.credit p{font-size:19px;line-height:1.35;font-weight:100;color:#555;margin:0}.work-player{display:grid;grid-template-columns:15px auto;gap:10px;align-items:center;margin-top:4px;color:#777;font-size:19px}.work-player audio{display:none}.track-play{border:0;background:transparent;color:#2e2e2e;font-family:inherit;font-size:15px;line-height:1;padding:2px 0 0;cursor:pointer}.works-home{position:absolute;left:57px;bottom:41px;font-size:27px;font-weight:200}
+
+/* Film — approved spacing and far-right demo. */
+.film-page{position:relative;width:1394px;height:1000px;overflow:hidden;padding:50px 57px 36px}.film-page>h1{font-size:40px;line-height:1.1;font-weight:100;letter-spacing:-.9px;margin:0}.film-credits{position:absolute;top:154px;left:57px;width:418px}.film-credits .credit{height:180px;margin:0}.film-credits .credit h2{font-size:21px;line-height:1.25;font-weight:200;margin:0 0 3px}.film-credits .credit p{font-size:19px;line-height:1.35;color:#303030;margin:0}.film-credits .film-role{color:#666}.film-credits audio{display:none}.track-row{display:grid;grid-template-columns:292px 15px auto;align-items:center;gap:10px;white-space:nowrap}.track-row p,.track-row span{color:#777!important;font-weight:100!important}.track-row em{font-weight:100}.film-demo{position:absolute;top:147px;right:57px;width:450px}.film-demo h2{text-align:center;font-size:28px;line-height:1.2;font-weight:200;margin:0 0 25px}.film-demo video{display:block;width:100%;height:290px;background:#000;object-fit:contain}.film-home{position:absolute;left:57px;bottom:41px;font-size:30px;font-weight:200}
+
+/* Photography intro and main grid. */
+.photo-intro{width:100%}.photo-intro h2{font-size:28px;line-height:1.45;font-weight:300;margin:0}.photo-intro h3{font-size:20px;line-height:1.45;font-weight:200;margin:0 0 28px}.photo-intro p{font-size:19px;line-height:1.5;font-weight:100;margin:0 0 30px}.photo-intro>a{font-size:21px;font-weight:400;font-style:italic}
+.page.exhibition{padding:38px 77px 27px}.exhibition>h1{font-size:36px;line-height:1.2;font-weight:100;letter-spacing:-.7px;margin:0 0 27px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);column-gap:54px;row-gap:8px;width:100%;height:820px}.gallery a{display:block;height:100%;min-height:0;transform:none;transition:none}.gallery a:hover{opacity:1;transform:none}.gallery figure{display:flex;flex-direction:column;height:100%;min-height:0;margin:0}.gallery img{display:block;flex:1;width:100%;height:0;object-fit:cover}.gallery figcaption{flex:0 0 26px;text-align:center;font-size:14px;line-height:26px;font-weight:200;font-style:italic;white-space:nowrap;transition:.2s}.gallery a:hover figcaption{opacity:.6;transform:translateX(2px) scale(1.1)}.gallery-footer{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;margin-top:8px;font-size:28px;line-height:35px;font-weight:200}.gallery-footer a:nth-child(2){justify-self:center;font-style:italic;font-weight:400}
+
+/* Individual artwork pages — exact supplied 1394 × 998 layouts. */
+.art-page{position:relative;width:1394px;height:1000px;overflow:hidden;padding:50px 61px 28px}.art-page h1{font-size:44px;line-height:1.15;font-style:italic;font-weight:100;letter-spacing:-1px;margin:0 0 62px}.art-layout{display:grid;align-items:start}.art-images{display:grid;gap:7px}.art-images figure,.art-layout>figure{margin:0;min-width:0}.art-images img{display:block;width:100%;height:100%;object-fit:cover}.art-copy{font-size:20px;line-height:1.55}.art-copy p{margin:0}.art-copy .spec{font-size:21px;line-height:1.3;font-weight:300;margin:0 0 32px;white-space:nowrap}.art-caption{text-align:center;height:24px;line-height:24px;font-size:14px;font-style:italic}.art-nav{position:absolute;left:61px;right:61px;bottom:28px;display:grid;grid-template-columns:1fr 1fr 1fr;font-size:29px;line-height:36px;font-weight:200}.art-nav a:nth-child(2){justify-self:center}.art-nav a:last-child{justify-self:end}
+.layout-szgm{grid-template-columns:477px 445px 260px;gap:18px}.layout-szgm .art-images{display:contents}.layout-szgm .art-image-1,.layout-szgm .art-image-3{grid-column:1;height:342px}.layout-szgm .art-image-1{grid-row:1}.layout-szgm .art-image-3{grid-row:2}.layout-szgm .art-image-2{grid-column:2;grid-row:1/3;height:684px}.layout-szgm figure img{height:calc(100% - 24px)}.layout-szgm .art-copy{grid-column:3;grid-row:1/3;font-size:19px}
+.art-cc{padding:28px 47px 26px}.art-cc h1{margin-bottom:24px}.layout-cc{grid-template-columns:repeat(3,1fr);gap:9px}.layout-cc .art-images{display:contents}.layout-cc img{height:286px}.layout-cc .art-image-4 img,.layout-cc .art-image-5 img,.layout-cc .art-image-6 img{transform:scaleY(-1)}.layout-cc .art-copy{grid-column:1/4;margin-top:17px;font-size:19px;line-height:1.52}.art-cc .art-nav{left:51px;right:43px;bottom:25px}
+.art-ellienzo{padding:43px 68px 26px}.art-ellienzo h1{margin:0}.layout-ellienzo{display:block}.layout-ellienzo .art-images{display:contents}.layout-ellienzo figure{position:absolute;width:445px;height:320px}.layout-ellienzo figure img{height:297px}.art-ellienzo .art-image-1{left:315px;top:115px}.art-ellienzo .art-image-2{left:774px;top:115px}.art-ellienzo .art-image-3{left:184px;top:425px}.art-ellienzo .art-image-4{left:643px;top:425px}.layout-ellienzo .art-copy{position:absolute;left:68px;right:68px;top:747px;font-size:19px}.art-ellienzo .art-nav{left:68px;right:63px;bottom:20px}
+/* El Lienzo: duplicate each source across its row; mirror only the right copy. Layout is unchanged. */
+.art-ellienzo .art-image-2 img,.art-ellienzo .art-image-4 img{transform:scaleX(-1)}
+.art-borderlines{padding:64px 66px 26px}.art-borderlines h1{margin-bottom:58px}.art-borderlines .layout-side-right{grid-template-columns:933px 280px;gap:37px}.art-borderlines .art-images{height:622px}.art-borderlines figure,.art-borderlines figure img{height:100%}.art-borderlines figure img{height:calc(100% - 24px)}
+.art-thebiglie{padding:52px 60px 26px}.art-thebiglie h1{margin-bottom:61px}.art-thebiglie .layout-side-left{grid-template-columns:268px 934px;gap:68px}.art-thebiglie .art-images{height:624px}.art-thebiglie figure{height:100%}.art-thebiglie figure img{height:calc(100% - 24px)}.art-thebiglie .art-copy{font-size:19px;line-height:1.7}
+.art-anomalia{padding:45px 64px 25px}.art-anomalia h1{margin-bottom:58px}.art-anomalia .layout-portrait{grid-template-columns:530px 543px;justify-content:space-between}.art-anomalia .art-copy{font-size:20px;line-height:1.7}.art-anomalia .art-images{height:815px;margin-top:-112px}.art-anomalia figure{height:100%}.art-anomalia figure img{height:calc(100% - 24px)}
+.art-dechirico{padding:51px 61px 24px}.art-dechirico h1{margin:0}.layout-dechirico{display:block}.layout-dechirico .art-images{display:contents}.layout-dechirico figure{position:absolute}.layout-dechirico figure img{height:calc(100% - 24px)}.art-dechirico .art-image-1{left:61px;top:119px;width:721px;height:505px}.art-dechirico .art-image-2,.art-dechirico .art-image-3,.art-dechirico .art-image-4{left:813px;width:426px;height:305px}.art-dechirico .art-image-2{top:29px}.art-dechirico .art-image-3{top:339px}.art-dechirico .art-image-4{top:649px}.layout-dechirico .art-copy{position:absolute;left:61px;top:640px;width:725px;font-size:18px}.art-dechirico .art-nav{bottom:21px}
+.art-blame{padding:50px 61px 25px}.art-blame h1{margin-bottom:68px}.art-blame .layout-side-right{grid-template-columns:934px 284px;gap:37px}.art-blame .art-images{height:623px}.art-blame figure{height:100%}.art-blame figure img{height:calc(100% - 24px)}.art-blame .art-copy{font-size:19px;line-height:1.7}
+.art-disruptive{padding:49px 61px 25px}.art-disruptive h1{margin-bottom:68px}.art-disruptive .layout-side-left{grid-template-columns:268px 934px;gap:68px}.art-disruptive .art-images{height:624px}.art-disruptive figure{height:100%}.art-disruptive figure img{height:calc(100% - 24px)}.art-disruptive .art-copy{font-size:19px;line-height:1.65}
+
+.read-more{position:relative;width:1394px;height:1000px;padding:80px 77px 45px;font-size:19px;line-height:1.45}.read-more p{width:100%;margin:0 0 28px}.read-more strong{font-weight:400}.read-more a{margin-top:38px;font-size:27px;font-weight:200}
+
+/* v13: only typography refinement and outward positioning. */
+.name p{position:relative;left:50%;width:max-content;transform:translateX(-50%)}
+.name h1,.page>h1,.film-page>h1{font-size:37.6px}.page.bio>h1{font-size:43.2px}.name p,.home nav{font-size:17.9px}
+.corner-link,.works-home{font-size:24.4px}.bio section{font-size:18.8px}.bio figcaption{font-size:14.1px}.bio section>a{font-size:28.2px}.bio>.corner-link{font-size:28.2px}
+.works-grid h2,.credit h2{font-size:19.7px}.works-grid p,.credit p,.work-player{font-size:17.9px}
+.film-credits .credit h2{font-size:19.7px}.film-credits .credit p,.track-row span{font-size:17.9px}.film-demo h2{font-size:26.3px}.film-home{font-size:28.2px}
+.photo-intro h2{font-size:26.3px}.photo-intro h3{font-size:18.8px}.photo-intro p{font-size:17.9px}.photo-intro>a{font-size:19.7px}
+.exhibition>h1{font-size:33.8px}.gallery figcaption{font-size:13.2px}.gallery-footer{font-size:26.3px}
+.art-page h1{font-size:41.4px}.art-copy{font-size:18.8px}.art-copy .spec{font-size:19.7px}.art-caption{font-size:13.2px}.art-nav{font-size:27.3px}
+.layout-szgm .art-copy,.layout-cc .art-copy,.layout-ellienzo .art-copy,.art-thebiglie .art-copy,.art-blame .art-copy,.art-disruptive .art-copy{font-size:17.9px}.layout-dechirico .art-copy{font-size:16.9px}.art-anomalia .art-copy{font-size:18.8px}
+.read-more{font-size:17.9px}.read-more a{font-size:25.4px}
+.home nav{font-weight:300}.gallery-footer a:nth-child(2),.read-more strong{font-weight:300}.works-grid h2,.credit h2,.film-demo h2,.bio section>a{font-weight:100}
+:root{--pad:50px}.page{padding-left:50px;padding-right:50px}.corner-link{left:50px}
+.page.bio{padding-left:50px;padding-right:50px}.page.bio figure{left:50px}.page.bio section{left:1018px}.page.bio>.corner-link{left:50px}
+.page.exhibition{padding-left:50px;padding-right:50px}.page.exhibition .gallery{column-gap:81px}
+.film-page{padding-left:50px;padding-right:50px}.film-credits{left:50px}.film-demo{right:50px}.film-home{left:50px}
+.works-page{padding-left:50px;padding-right:50px}.works-home{left:50px}.read-more{padding-left:50px;padding-right:50px}
+.art-page{padding-left:50px;padding-right:50px}.art-nav{left:50px;right:50px}.art-cc,.art-ellienzo,.art-borderlines,.art-thebiglie,.art-anomalia,.art-dechirico,.art-blame,.art-disruptive{padding-left:50px;padding-right:50px}
+.art-cc .art-nav,.art-ellienzo .art-nav{left:50px;right:50px}
+
+/* v14 corrections: exact 50px outer bounds, v12 home type, aligned Bio. */
+.name h1{font-size:40px}.name p{font-size:19px}.home nav{font-size:19px;font-weight:400}
+
+.page.bio figure{left:50px;top:213px;width:812px}.page.bio figure img{height:541px}
+.page.bio section{left:1018px;top:213px;width:326px;height:541px;display:flex;flex-direction:column;justify-content:space-between;font-size:18.8px;line-height:1.45}
+.page.bio section p{margin:0}.page.bio section>a{margin:0;font-size:28.2px}
+
+/* Fixed image widths; only the spaces between columns expand. */
+.layout-szgm{grid-template-columns:477px 445px 260px;column-gap:0;justify-content:space-between;width:1294px}
+.art-borderlines .layout-side-right{grid-template-columns:933px 280px;gap:0;justify-content:space-between;width:1294px}
+.art-thebiglie .layout-side-left{grid-template-columns:268px 934px;gap:0;justify-content:space-between;width:1294px}
+.art-blame .layout-side-right{grid-template-columns:934px 284px;gap:0;justify-content:space-between;width:1294px}
+.art-disruptive .layout-side-left{grid-template-columns:268px 934px;gap:0;justify-content:space-between;width:1294px}
+.art-dechirico .art-image-1{left:50px}.art-dechirico .art-image-2,.art-dechirico .art-image-3,.art-dechirico .art-image-4{left:918px}
+.art-dechirico .layout-dechirico .art-copy{left:50px}
+
+/* v15 Film-only adjustment: 40px edge gaps and a 30% larger reel. */
+.film-page{width:100%;padding-left:40px;padding-right:40px}
+.film-credits{left:40px}.film-home{left:40px}
+.film-demo{right:40px;width:585px}
+.film-demo video{width:585px;height:377px}
+.film-demo h2{width:585px;text-align:center}
+
+/* Equal vertical rhythm; dimensions and type sizes remain unchanged. */
+.film-credits{display:grid;grid-template-rows:repeat(4,180px);row-gap:0}
+.film-credits .credit{height:auto}
+.works-grid{display:grid;grid-template-rows:repeat(5,138px);row-gap:0}
+
+/* v16: exact 80px horizontal page bounds; no type or media resizing. */
+:root{--pad:80px}
+.page,.works-page,.film-page,.read-more,.art-page,
+.page.bio,.page.exhibition,
+.art-cc,.art-ellienzo,.art-borderlines,.art-thebiglie,
+.art-anomalia,.art-dechirico,.art-blame,.art-disruptive{
+  padding-left:80px;
+  padding-right:80px;
+}
+.corner-link,.works-home,.film-home,.page.bio>.corner-link{left:80px}
+.film-credits{left:80px}
+.film-demo{right:80px}
+.art-nav,.art-cc .art-nav,.art-ellienzo .art-nav{left:80px;right:80px}
+
+/* Bio keeps the approved image and copy dimensions, moved inside 80px bounds. */
+.page.bio figure{left:80px}
+.page.bio section{left:auto;right:80px}
+
+/* Photography grid keeps its rows and image relationships inside the new bounds. */
+.page.exhibition .gallery{column-gap:51px}
+
+/* Artwork media dimensions are unchanged; only their available span/positions move. */
+.layout-szgm,
+.art-borderlines .layout-side-right,
+.art-thebiglie .layout-side-left,
+.art-blame .layout-side-right,
+.art-disruptive .layout-side-left{width:1234px}
+.art-dechirico .art-image-1,.art-dechirico .layout-dechirico .art-copy{left:80px}
+.art-dechirico .art-image-2,.art-dechirico .art-image-3,.art-dechirico .art-image-4{left:888px}
+.layout-ellienzo .art-copy{left:80px;right:80px}
+.layout-cc{width:1294px;margin-left:-30px}
+.layout-cc .art-copy{margin-left:30px;width:1234px}
+
+/* One identical physical gap between every Film credit and every Works entry. */
+.film-credits,.works-grid{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  height:auto;
+}
+.film-credits .credit,.works-grid article{height:auto;flex:0 0 auto}
+
+/* v17: one exact 60px visible browser-edge gap on every page. The scaler
+   supplies --screen-edge in canvas units, preserving every element's size. */
+.page,.works-page,.film-page,.read-more,.art-page,
+.page.bio,.page.exhibition,
+.art-cc,.art-ellienzo,.art-borderlines,.art-thebiglie,
+.art-anomalia,.art-dechirico,.art-blame,.art-disruptive{
+  padding-left:var(--screen-edge);
+  padding-right:var(--screen-edge);
+}
+.corner-link,.works-home,.film-home,.page.bio>.corner-link,
+.film-credits{left:var(--screen-edge)}
+.film-demo{right:var(--screen-edge)}
+.art-nav,.art-cc .art-nav,.art-ellienzo .art-nav{
+  left:var(--screen-edge);
+  right:var(--screen-edge);
+}
+
+.page.bio figure{left:var(--screen-edge)}
+.page.bio section{left:auto;right:var(--screen-edge)}
+
+/* Preserve gallery cell widths; only the spaces between columns expand. */
+.page.exhibition .gallery{
+  grid-template-columns:repeat(3,377.333px);
+  column-gap:0;
+  justify-content:space-between;
+}
+
+/* Preserve all supplied artwork dimensions while allowing the blank spaces
+   between fixed-size columns to absorb wider desktop aspect ratios. */
+.layout-szgm,
+.art-borderlines .layout-side-right,
+.art-thebiglie .layout-side-left,
+.art-blame .layout-side-right,
+.art-disruptive .layout-side-left{width:100%}
+.layout-cc{
+  width:100%;
+  margin-left:0;
+  grid-template-columns:repeat(3,425.333px);
+  justify-content:space-between;
+}
+.layout-cc .art-copy{margin-left:0;width:100%}
+.art-dechirico .art-image-1,
+.art-dechirico .layout-dechirico .art-copy{left:var(--screen-edge)}
+.art-dechirico .art-image-2,
+.art-dechirico .art-image-3,
+.art-dechirico .art-image-4{left:auto;right:var(--screen-edge)}
+.layout-ellienzo .art-copy{left:var(--screen-edge);right:var(--screen-edge)}
+
+/* v18 refinements: the Bio copy fills the space beside the fixed portrait. */
+.page.bio section{left:calc(var(--screen-edge) + 890px);right:var(--screen-edge);width:auto}
+
+/* Minimal Contact page, using the established Geist scale and light rules. */
+.contact-page>h1{margin-bottom:58px}
+.contact-form{width:640px}
+.contact-form label{display:block;margin:0 0 24px;color:#555;font-size:17.9px;font-weight:100}
+.contact-form input,.contact-form textarea{display:block;width:100%;margin-top:8px;border:1px solid #d5d5d5;border-radius:0;background:#fff;color:var(--ink);font:100 17.9px/1.4 "Geist",Arial,sans-serif;outline:none;padding:12px 14px}
+.contact-form input{height:52px}.contact-form textarea{height:210px;resize:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#777}
+.contact-form button{border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;font:100 17.9px/1 "Geist",Arial,sans-serif;padding:14px 20px}
+.contact-email{margin:30px 0 0;font-size:17.9px;font-weight:100}
+
+/* v19: line flow and Bio paragraph rhythm only. */
+.works-grid{width:900px}
+.page.bio section{justify-content:flex-start}
+.page.bio section p{margin:0}
+.page.bio section>a{margin-top:auto}
+
+/* v20: slightly larger, airier Bio copy; CV remains pinned by margin-top:auto. */
+.page.bio section{font-size:20px;line-height:1.55}
+
+/* El Lienzo: lift the number captions clear of the photographs below. */
+.art-ellienzo .art-caption{position:relative;top:-10px}
+
+/* v21: fine custom gray audio players for Film and Works. */
+.work-player{display:block;width:900px;margin-top:6px}
+.track-row{display:grid;grid-template-columns:292px 570px;gap:18px;align-items:center}
+.media-player{display:grid;grid-template-columns:25px 25px minmax(90px,1fr) auto 25px;align-items:center;gap:7px;width:100%;height:34px;padding:0 9px;border:1px solid #d3d3d3;background:#f3f3f3;color:#858585;font-size:13px;font-weight:100}
+.media-player button{display:grid;place-items:center;width:25px;height:25px;padding:0;border:0;background:transparent;color:#777;font:100 13px/1 "Geist",Arial,sans-serif;cursor:pointer}
+.media-time{min-width:76px;white-space:nowrap;font-size:12px;color:#858585}
+.media-progress{width:100%;height:12px;margin:0;padding:0;appearance:none;background:transparent;cursor:pointer}
+.media-progress::-webkit-slider-runnable-track{height:1px;background:#a9a9a9}
+.media-progress::-webkit-slider-thumb{appearance:none;width:7px;height:7px;margin-top:-3px;border:0;border-radius:50%;background:#777}
+.media-progress::-moz-range-track{height:1px;background:#a9a9a9}
+.media-progress::-moz-range-thumb{width:7px;height:7px;border:0;border-radius:50%;background:#777}
+
+/* Bio copy is exactly 30% larger than v20, with paragraph spacing restored. */
+.page.bio section{font-size:26px;line-height:1.35}
+.page.bio section p{margin:0 0 20px}
+.page.bio section p:last-of-type{margin-bottom:0}
+.page.bio section>a{margin-top:auto}
+
+/* v22: caption placement from the supplied photography layouts. */
+.art-cc .art-image-1 .art-caption,
+.art-cc .art-image-2 .art-caption,
+.art-cc .art-image-3 .art-caption{visibility:hidden}
+.art-ellienzo .art-image-2 .art-caption,
+.art-ellienzo .art-image-3 .art-caption{display:none}
+.art-ellienzo .art-image-1 .art-caption{position:absolute;left:-35px;top:calc(50% - 12px);width:auto;line-height:24px}
+.art-ellienzo .art-image-4 .art-caption{position:absolute;left:calc(100% + 14px);top:calc(50% - 12px);width:auto;line-height:24px}
+
+/* v23: restore the approved v20 Bio typography and paragraph rhythm. */
+.page.bio section{font-size:20px;line-height:1.55}
+.page.bio section p,.page.bio section p:last-of-type{margin:0}
+.page.bio section>a{margin-top:auto}
+
+/* Rounded gray waveform player, retaining every transport function. */
+.media-player{height:44px;padding:0 12px;border:0;border-radius:17px;background:#9a9a9a;color:#fff;grid-template-columns:23px 23px minmax(110px,1fr) auto 23px;gap:7px}
+.media-player button{color:#fff;font-size:14px}
+.media-time{color:#fff;font-size:11px;opacity:.88}
+.media-progress{height:20px}
+.media-progress::-webkit-slider-runnable-track{height:16px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.95) 0 2px,transparent 2px 6px);clip-path:polygon(0 44%,4% 25%,8% 40%,12% 15%,16% 38%,20% 5%,24% 30%,28% 12%,32% 42%,36% 22%,40% 45%,44% 32%,48% 47%,52% 28%,56% 43%,60% 20%,64% 46%,68% 34%,72% 48%,76% 38%,80% 47%,84% 40%,88% 49%,92% 43%,96% 49%,100% 46%,100% 54%,96% 51%,92% 57%,88% 51%,84% 60%,80% 53%,76% 62%,72% 52%,68% 66%,64% 54%,60% 80%,56% 57%,52% 72%,48% 53%,44% 68%,40% 55%,36% 78%,32% 58%,28% 88%,24% 70%,20% 95%,16% 62%,12% 85%,8% 60%,4% 75%,0 56%)}
+.media-progress::-webkit-slider-thumb{width:7px;height:20px;margin-top:-2px;border-radius:3px;background:#fff;opacity:.9}
+.media-progress::-moz-range-track{height:2px;background:rgba(255,255,255,.8)}
+.media-progress::-moz-range-thumb{width:7px;height:20px;border-radius:3px;background:#fff}
+
+/* Final player reference: smooth gray transport bar, without waveform. */
+.media-player{height:46px;padding:0 14px;border-radius:15px;background:#a2a2a2;grid-template-columns:30px 82px minmax(90px,1fr) 30px 30px;gap:9px}
+.media-player button{color:rgba(255,255,255,.86);font-size:17px}
+.media-time{color:rgba(255,255,255,.7);font-size:13px}
+.media-progress{height:14px}
+.media-progress::-webkit-slider-runnable-track{height:1px;background:rgba(255,255,255,.55);clip-path:none}
+.media-progress::-webkit-slider-thumb{width:6px;height:6px;margin-top:-3px;border-radius:50%;background:rgba(255,255,255,.9)}
+.media-progress::-moz-range-track{height:1px;background:rgba(255,255,255,.55)}
+.media-progress::-moz-range-thumb{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.9)}
+
+/* v25: compact player matched to the supplied gray reference. */
+.work-player{width:300px}
+.track-row{grid-template-columns:292px 300px}
+.media-player{
+  width:300px;
+  height:33px;
+  padding:0 9px;
+  border-radius:10px;
+  background:#a3a3a3;
+  grid-template-columns:20px 65px minmax(55px,1fr) 20px 20px;
+  gap:6px;
+}
+.media-player button{
+  width:20px;
+  height:20px;
+  font-size:12px;
+  color:rgba(255,255,255,.88);
+}
+.media-time{min-width:65px;font-size:11px;color:rgba(255,255,255,.68)}
+.media-progress{height:10px}
+.media-progress::-webkit-slider-runnable-track{height:1px}
+.media-progress::-webkit-slider-thumb{width:5px;height:5px;margin-top:-2px}
+.media-progress::-moz-range-track{height:1px}
+.media-progress::-moz-range-thumb{width:5px;height:5px}
+
+/* v26: keep the compact time counter clear of the progress control. */
+.media-player{grid-template-columns:20px 55px minmax(65px,1fr) 20px 20px}
+.media-time{
+  min-width:55px;
+  font-size:8px;
+  letter-spacing:-.15px;
+  line-height:1;
+}
+
+/* Extend the compact control horizontally without changing its height. */
+.work-player{width:360px}
+.track-row{grid-template-columns:292px 360px}
+.media-player{width:360px}
+
+/* Film player time counter: match the compact Works player without moving the player. */
+.track-row .media-time{
+  min-width:55px;
+  font-size:8px;
+  letter-spacing:-.15px;
+  line-height:1;
+}
+
+/* Works layout — two-column mockup refinement. */
+.works-page{
+  padding-top:50px;
+}
+.works-page>h1{
+  margin:0 0 72px;
+}
+.works-grid{
+  display:grid;
+  grid-template-columns:520px 520px;
+  grid-template-rows:auto;
+  column-gap:0;
+  row-gap:76px;
+  justify-content:space-between;
+  width:100%;
+  height:auto;
+}
+.works-grid article{
+  display:block;
+  min-width:0;
+}
+.works-grid h2{
+  margin:0 0 4px;
+  font-weight:100;
+}
+.works-grid p{
+  margin:0;
+  color:#555;
+  font-weight:100;
+  font-variation-settings:"wght" 100;
+  opacity:.78;
+}
+.works-page .work-player{
+  display:block;
+  width:490px;
+  margin-top:24px;
+}
+.works-page .media-player{
+  display:grid;
+  grid-template-columns:20px 62px minmax(0,1fr) 20px 20px;
+  gap:8px;
+  align-items:center;
+  width:490px;
+  height:22px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#3b3b3b;
+  font-size:10px;
+  font-weight:100;
+}
+.works-page .media-player button{
+  width:20px;
+  height:20px;
+  padding:0;
+  color:#3b3b3b;
+  font:100 11px/1 "Geist",Arial,sans-serif;
+}
+.works-page .media-time{
+  min-width:62px;
+  color:#3b3b3b;
+  font-size:9px;
+  letter-spacing:-.15px;
+  line-height:1;
+  opacity:1;
+}
+.works-page .media-progress{
+  width:100%;
+  height:10px;
+}
+.works-page .media-progress::-webkit-slider-runnable-track{
+  height:1px;
+  background:#8a8a8a;
+}
+.works-page .media-progress::-webkit-slider-thumb{
+  width:6px;
+  height:6px;
+  margin-top:-2.5px;
+  border-radius:50%;
+  background:#555;
+}
+.works-page .media-progress::-moz-range-track{
+  height:1px;
+  background:#8a8a8a;
+}
+.works-page .media-progress::-moz-range-thumb{
+  width:6px;
+  height:6px;
+  border:0;
+  border-radius:50%;
+  background:#555;
+}
+.works-home{
+  left:var(--screen-edge);
+}
+
+/* Film players: use the exact Works visual treatment, while preserving Film placement and width. */
+.film-page .media-player{
+  display:grid;
+  grid-template-columns:20px 62px minmax(0,1fr) 20px 20px;
+  gap:8px;
+  align-items:center;
+  width:100%;
+  height:22px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#3b3b3b;
+  font-size:10px;
+  font-weight:100;
+}
+.film-page .media-player button{
+  width:20px;
+  height:20px;
+  padding:0;
+  color:#3b3b3b;
+  font:100 11px/1 "Geist",Arial,sans-serif;
+}
+.film-page .media-time{
+  min-width:62px;
+  color:#3b3b3b!important;
+  font-size:9px!important;
+  letter-spacing:-.15px;
+  line-height:1;
+  opacity:1;
+}
+.film-page .media-progress{
+  width:100%;
+  height:10px;
+}
+.film-page .media-progress::-webkit-slider-runnable-track{
+  height:1px;
+  background:#8a8a8a;
+}
+.film-page .media-progress::-webkit-slider-thumb{
+  width:6px;
+  height:6px;
+  margin-top:-2.5px;
+  border-radius:50%;
+  background:#555;
+}
+.film-page .media-progress::-moz-range-track{
+  height:1px;
+  background:#8a8a8a;
+}
+.film-page .media-progress::-moz-range-thumb{
+  width:6px;
+  height:6px;
+  border:0;
+  border-radius:50%;
+  background:#555;
+}
+
+/* Final Works alignment: start the right-column compositions on the page center axis. */
+.works-page .works-grid{
+  grid-template-columns:50% 50%;
+  column-gap:0;
+  justify-content:stretch;
+}
+
+/* Final spacing refinement: spread entries out slightly without changing any element sizes. */
+.film-credits{
+  gap:58px;
+}
+.works-page .works-grid{
+  row-gap:112px;
+}
+
+/* ============================================================
+   PHONE LAYOUT ONLY — desktop rules above remain unchanged.
+   Activates at 767px and below.
+   ============================================================ */
+@media (max-width: 767px){
+  :root{--screen-edge:24px}
+  html,body{
+    width:100%;
+    min-width:0;
+    height:auto;
+    min-height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+  /* Main page: preserve the supplied two-column lockup on a phone. */
+  .home{
+    position:relative!important;
+    width:100%!important;
+    height:100svh!important;
+    min-height:680px!important;
+    left:auto!important;
+    top:auto!important;
+    transform:none!important;
+    overflow:hidden!important;
+    padding:0 24px;
+    display:grid;
+    place-items:center;
+  }
+  .home-lockup{
+    width:100%;
+    max-width:360px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap:42px;
+    margin:0;
+  }
+  .home .name{
+    flex:0 0 176px;
+    width:176px;
+    text-align:center;
+  }
+  .home .name h1{
+    font-size:40px;
+    line-height:1.08;
+    letter-spacing:-1.65px;
+  }
+  .home .name p{
+    font-size:17px;
+    margin-top:13px;
+  }
+  .home nav{
+    flex:0 0 auto;
+    gap:26px;
+    font-size:19px;
+  }
+
+  /* Shared phone page canvas. */
+  .page,.works-page,.film-page,.read-more,.art-page,
+  .page.bio,.page.exhibition,
+  .art-cc,.art-ellienzo,.art-borderlines,.art-thebiglie,
+  .art-anomalia,.art-dechirico,.art-blame,.art-disruptive{
+    position:relative!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:100svh!important;
+    left:auto!important;
+    top:auto!important;
+    transform:none!important;
+    overflow:visible!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+  }
+  .page,.works-page,.film-page{padding-top:36px!important;padding-bottom:54px!important}
+  .page>h1,.works-page>h1,.film-page>h1{margin-top:0}
+  .corner-link,.works-home,.film-home,.page.bio>.corner-link{
+    position:static!important;
+    display:inline-block;
+    left:auto!important;
+    bottom:auto!important;
+    margin-top:58px;
+  }
+
+  /* Bio: same content/style, only reflow text first and existing image below. */
+  .page.bio{padding-top:36px!important;padding-bottom:54px!important}
+  .page.bio>h1{font-size:46px;line-height:1.1;margin:0 0 34px}
+  .bio-layout{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+  }
+  .bio section{
+    position:static!important;
+    order:1;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    font-size:20px;
+    line-height:1.55;
+  }
+  .bio section p{margin:0 0 20px}
+  .bio section>a{font-size:30px;margin-top:5px}
+  .bio figure{
+    position:static!important;
+    order:2;
+    left:auto!important;
+    top:auto!important;
+    width:100%!important;
+    margin:36px 0 0!important;
+  }
+  .bio figure img{
+    width:100%;
+    height:auto;
+    aspect-ratio:812/541;
+    object-fit:cover;
+  }
+  .bio figcaption{font-size:13px;margin-top:8px}
+  .bio>.corner-link{font-size:30px;margin-top:50px}
+
+  /* Works: same entries and player styling, one fluid column. */
+  .works-page>h1{font-size:40px;margin-bottom:62px}
+  .works-page .works-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:none!important;
+    width:100%!important;
+    height:auto!important;
+    row-gap:60px!important;
+    column-gap:0!important;
+  }
+  .works-grid article{width:100%;min-width:0}
+  .works-grid h2{font-size:21px}
+  .works-grid p{font-size:17px;line-height:1.35}
+  .works-page .work-player{
+    width:100%!important;
+    margin-top:22px;
+  }
+  .works-page .media-player{
+    width:100%!important;
+    grid-template-columns:20px 62px minmax(0,1fr) 20px 20px;
+  }
+  .works-home{font-size:27px;margin-top:74px}
+
+  /* Film: credits stack naturally. Player moves below Featured Track only on phone. */
+  .film-page>h1{font-size:32px;line-height:1.1;margin-bottom:56px}
+  .film-credits{
+    position:static!important;
+    display:flex!important;
+    flex-direction:column;
+    width:100%!important;
+    left:auto!important;
+    top:auto!important;
+    gap:54px!important;
+  }
+  .film-credits .credit{height:auto!important;width:100%}
+  .film-credits .credit h2{font-size:21px}
+  .film-credits .credit p{font-size:17px;line-height:1.35}
+  .track-row{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+    width:100%!important;
+    white-space:normal!important;
+  }
+  .track-row p{width:100%}
+  .film-page .media-player{
+    width:100%!important;
+    grid-template-columns:20px 62px minmax(0,1fr) 20px 20px;
+  }
+  .film-demo{
+    position:static!important;
+    width:100%!important;
+    right:auto!important;
+    top:auto!important;
+    margin-top:64px;
+  }
+  .film-demo h2{
+    width:100%!important;
+    text-align:center;
+    font-size:28px;
+    margin-bottom:20px;
+  }
+  .film-demo video{
+    width:100%;
+    height:auto;
+    aspect-ratio:450/290;
+  }
+  .film-home{font-size:30px;margin-top:58px}
+
+  /* Photography intro and Contact: same content, fluid width. */
+  .photo-intro{width:100%}
+  .photo-intro h2{font-size:28px}
+  .photo-intro h3{font-size:20px}
+  .photo-intro p{font-size:17px;line-height:1.55}
+  .contact-form{width:100%}
+  .contact-form input,.contact-form textarea{width:100%}
+  .contact-email{overflow-wrap:anywhere}
+
+  /* Exhibition: retain every photograph, stack the existing gallery on phone. */
+  .page.exhibition{padding-top:32px!important;padding-bottom:54px!important}
+  .exhibition>h1{font-size:32px;margin-bottom:30px}
+  .page.exhibition .gallery{
+    display:grid;
+    grid-template-columns:1fr!important;
+    grid-template-rows:none!important;
+    gap:32px!important;
+    width:100%!important;
+    height:auto!important;
+  }
+  .gallery a,.gallery figure{height:auto!important}
+  .gallery img{width:100%;height:auto!important;aspect-ratio:4/3;object-fit:cover}
+  .gallery figcaption{height:auto;line-height:1.35;padding-top:8px;white-space:normal}
+  .gallery-footer{
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:46px;
+    font-size:24px;
+  }
+  .gallery-footer a:nth-child(2){justify-self:end}
+
+  /* Long photography text. */
+  .read-more{
+    padding-top:38px!important;
+    padding-bottom:54px!important;
+    font-size:17px;
+    line-height:1.55;
+  }
+  .read-more p{width:100%;margin-bottom:26px}
+  .read-more a{font-size:24px;margin-top:20px}
+
+  /* Individual artworks: keep existing images/copy, simply stack them. */
+  .art-page{padding-top:34px!important;padding-bottom:52px!important}
+  .art-page h1{font-size:34px;line-height:1.15;margin:0 0 34px!important}
+  .art-layout,.layout-szgm,.layout-cc,.layout-ellienzo,
+  .art-borderlines .layout-side-right,.art-thebiglie .layout-side-left,
+  .art-anomalia .layout-portrait,.layout-dechirico,
+  .art-blame .layout-side-right,.art-disruptive .layout-side-left{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    gap:24px!important;
+  }
+  .art-images{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    height:auto!important;
+    gap:18px!important;
+    order:1;
+  }
+  .art-layout>.art-copy{order:2}
+  .art-page figure,
+  .layout-ellienzo figure,
+  .layout-dechirico figure,
+  .art-dechirico .art-image-1,.art-dechirico .art-image-2,
+  .art-dechirico .art-image-3,.art-dechirico .art-image-4{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    height:auto!important;
+    margin:0!important;
+  }
+  .art-page figure img,.art-images img{
+    display:block;
+    width:100%!important;
+    height:auto!important;
+    max-height:none!important;
+    object-fit:contain;
+    transform:none!important;
+  }
+  .art-caption,
+  .art-ellienzo .art-image-1 .art-caption,
+  .art-ellienzo .art-image-4 .art-caption{
+    position:static!important;
+    display:block!important;
+    visibility:visible!important;
+    width:100%!important;
+    height:auto!important;
+    line-height:1.35!important;
+    text-align:center;
+    padding-top:6px;
+  }
+  .art-copy,
+  .layout-dechirico .art-copy,
+  .layout-ellienzo .art-copy{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+    font-size:17px!important;
+    line-height:1.55!important;
+  }
+  .art-copy .spec{font-size:17px;white-space:normal;margin-bottom:22px}
+  .art-nav,.art-cc .art-nav,.art-ellienzo .art-nav{
+    position:static!important;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    width:100%;
+    margin-top:44px;
+    font-size:24px;
+  }
+}
+
+
+/* Larger, easier-to-click audio controls — Works and Film only. */
+.works-page .media-player,
+.film-page .media-player{
+  height:32px;
+  grid-template-columns:30px 72px minmax(0,1fr) 30px 30px;
+  gap:8px;
+}
+.works-page .media-player button,
+.film-page .media-player button{
+  width:30px;
+  height:30px;
+  font-size:15px;
+}
+.works-page .media-time,
+.film-page .media-time{
+  min-width:72px;
+  font-size:10px!important;
+}
+.works-page .media-progress,
+.film-page .media-progress{
+  height:18px;
+}
+.works-page .media-progress::-webkit-slider-thumb,
+.film-page .media-progress::-webkit-slider-thumb{
+  width:8px;
+  height:8px;
+  margin-top:-3.5px;
+}
+.works-page .media-progress::-moz-range-thumb,
+.film-page .media-progress::-moz-range-thumb{
+  width:8px;
+  height:8px;
+}
+
+@media (max-width:767px){
+  .works-page .media-player,
+  .film-page .media-player{
+    grid-template-columns:34px 74px minmax(0,1fr) 34px 34px;
+    height:36px;
+  }
+  .works-page .media-player button,
+  .film-page .media-player button{
+    width:34px;
+    height:34px;
+    font-size:16px;
+  }
+}
+
+
+/* Audio player accessibility sizing — 30% larger, layout/placement unchanged */
+.works-page .custom-audio-player,
+.film-page .custom-audio-player,
+body.works .custom-audio-player,
+body.film .custom-audio-player,
+.works-list .custom-audio-player,
+.film-list .custom-audio-player,
+.work-audio,
+.film-audio {
+  font-size: 130%;
+}
+
+.works-page .custom-audio-player button,
+.film-page .custom-audio-player button,
+body.works .custom-audio-player button,
+body.film .custom-audio-player button,
+.works-list .custom-audio-player button,
+.film-list .custom-audio-player button,
+.work-audio button,
+.film-audio button {
+  transform: scale(1.3);
+  transform-origin: center;
+}
+
+
+/* Larger play button only — no player/grid/layout resizing */
+.works-page .media-player > button:first-child,
+.film-page .media-player > button:first-child {
+  transform: scale(1.4) !important;
+  transform-origin: center center !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep Film/Works mobile layout exactly as before; only scale the play icon/button. */
+@media (max-width: 767px) {
+  .works-page .media-player > button:first-child,
+  .film-page .media-player > button:first-child {
+    transform: scale(1.4) !important;
+  }
+}

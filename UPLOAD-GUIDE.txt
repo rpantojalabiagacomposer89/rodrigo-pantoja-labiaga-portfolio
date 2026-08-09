@@ -1,0 +1,33 @@
+HOW TO ADD YOUR FILES
+=====================
+
+Upload this entire folder to Neocities or any static website host.
+
+MUSIC — put MP3 files in assets/music/ using these exact names:
+un-dia-en-la-oficina.mp3
+el-cisne.mp3
+levare.mp3
+arcabuco.mp3
+echoes.mp3
+circulos.mp3
+stalker.mp3
+subdue.mp3
+personal-therapist.mp3
+
+PHOTOGRAPHS — replace the matching placeholder JPG in assets/photos/:
+bio-portrait.jpg
+demo-reel-poster.jpg
+szgm-1.jpg, szgm-2.jpg, szgm-3.jpg
+chromatic-1.jpg, chromatic-2.jpg, chromatic-3.jpg
+lienzo-1.jpg, lienzo-2.jpg, lienzo-3.jpg, lienzo-4.jpg
+borderlines.jpg
+big-lie.jpg
+anomalia.jpg
+dechirico-1.jpg, dechirico-2.jpg, dechirico-3.jpg, dechirico-4.jpg
+blame.jpg
+disruptive.jpg
+
+VIDEO — put the demo reel in assets/video/ as demo-reel.mp4
+CV — put the PDF in assets/documents/ as rodrigo-pantoja-cv.pdf
+
+Keep the filenames unchanged and the pages update automatically.
