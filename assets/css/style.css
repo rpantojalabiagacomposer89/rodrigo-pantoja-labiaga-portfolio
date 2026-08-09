@@ -907,6 +907,6 @@ body.film .custom-audio-player button,
 @media (max-width:767px){
   /* Keep the Bio layout unchanged; only shift the crop so the face is more central. */
   .bio figure img{
-    object-position:72% center;
+    object-position:68% center;
   }
 }
