@@ -978,8 +978,9 @@ body.film .custom-audio-player button,
   background: #111 !important;
 }
 
-/* Hide the old Home link on Film page */
-.film-home {
+/* Keep Film layout, but make old Home link invisible */
+.film-page .film-home {
+  opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
