@@ -911,26 +911,68 @@ body.film .custom-audio-player button,
   }
 }
 
-/* Top-right menu icon */
-.corner-link.menu-icon {
+/* Top-right navigation */
+.top-menu {
   position: fixed !important;
-  top: 32px !important;
-  right: 40px !important;
-  bottom: auto !important;
+  top: 48px !important;
+  right: 64px !important;
   left: auto !important;
-  margin-top: 0 !important;
-
-  width: 30px;
-  height: 20px;
+  bottom: auto !important;
 
   display: flex !important;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
 
   z-index: 1000;
 }
 
-.corner-link.menu-icon span {
+/* Hidden links */
+.top-menu-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(12px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  white-space: nowrap;
+}
+
+.top-menu-links a {
+  color: #111;
+  text-decoration: none;
+  font: inherit;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+/* Reveal links when hovering anywhere over the menu */
+.top-menu:hover .top-menu-links,
+.top-menu:focus-within .top-menu-links {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Hamburger */
+.menu-icon {
+  width: 30px;
+  height: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  flex: 0 0 auto;
+}
+
+.menu-icon span {
   display: block;
   width: 30px;
   height: 1px;
