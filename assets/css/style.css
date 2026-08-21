@@ -999,18 +999,15 @@ body.film .custom-audio-player button,
 /* ===== MOBILE MENU ===== */
 @media (max-width: 767px) {
 
-  /*
-    JS places this wrapper on the same vertical center as the page title.
-    It is ABSOLUTE, so it scrolls away naturally with the title.
-  */
+  /* Whole menu occupies the same horizontal row as the page title */
   .top-menu {
     position: absolute !important;
     right: 20px !important;
-    left: auto !important;
+    left: 20px !important;
     bottom: auto !important;
 
-    width: calc(100vw - 40px) !important;
-    height: 20px !important;
+    width: auto !important;
+    height: 24px !important;
 
     margin: 0 !important;
     padding: 0 !important;
@@ -1018,10 +1015,10 @@ body.film .custom-audio-player button,
     z-index: 10000 !important;
   }
 
-  /* Hamburger stays at the right edge of that title row */
+  /* Hamburger stays on the far right */
   .top-menu .menu-icon {
     position: absolute !important;
-    top: 0 !important;
+    top: 2px !important;
     right: 0 !important;
     left: auto !important;
     bottom: auto !important;
@@ -1046,20 +1043,12 @@ body.film .custom-audio-player button,
     display: block !important;
     width: 30px !important;
     height: 1px !important;
-
     margin: 0 !important;
     padding: 0 !important;
-
     background: #111 !important;
   }
 
-  /*
-    CLOSED STATE
-
-    Important:
-    hover and focus-within are ALSO forced closed on mobile.
-    This prevents iPhone Safari from keeping the menu open after a tap.
-  */
+  /* CLOSED */
   .top-menu .top-menu-links,
   .top-menu:hover .top-menu-links,
   .top-menu:focus-within .top-menu-links {
@@ -1072,20 +1061,20 @@ body.film .custom-audio-player button,
     bottom: auto !important;
 
     width: auto !important;
-    height: auto !important;
+    height: 48px !important;
 
     margin: 0 !important;
 
-    /*
-      White panel extends across the title area.
-      Extra right padding leaves room for the hamburger.
-    */
-    padding: 12px 54px 14px 14px !important;
+    /* Leave room on right for hamburger */
+    padding: 12px 48px 12px 0 !important;
 
     display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    gap: 11px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 15px !important;
+
+    white-space: nowrap !important;
 
     background: #fff !important;
 
@@ -1098,34 +1087,28 @@ body.film .custom-audio-player button,
     z-index: 10001 !important;
   }
 
-  /*
-    OPEN STATE
-    Only menu.js can activate this.
-  */
+  /* OPEN — JS controls this */
   .top-menu.is-open .top-menu-links,
   .top-menu.is-open:hover .top-menu-links,
   .top-menu.is-open:focus-within .top-menu-links {
-
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
   }
 
-  /* Slightly larger mobile menu text */
   .top-menu .top-menu-links a {
-    display: block !important;
+    display: inline-block !important;
 
     width: auto !important;
-
     margin: 0 !important;
     padding: 0 !important;
 
     font-family: "Geist", sans-serif !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
     font-weight: 100 !important;
-    line-height: 1.2 !important;
+    line-height: 1 !important;
 
-    text-align: right !important;
+    text-align: center !important;
     white-space: nowrap !important;
 
     transform: none !important;
