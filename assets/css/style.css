@@ -999,35 +999,43 @@ body.film .custom-audio-player button,
 /* ===== MOBILE MENU ===== */
 @media (max-width: 767px) {
 
+  /* Keep hamburger fixed and align it vertically with the page title */
   .top-menu {
-    top: 22px !important;
+    position: fixed !important;
+    top: 62px !important;
     right: 20px !important;
     left: auto !important;
     bottom: auto !important;
+
+    z-index: 10000 !important;
     gap: 0 !important;
-    align-items: flex-start !important;
   }
 
   .top-menu .menu-icon {
     position: relative !important;
-    z-index: 10001 !important;
+    z-index: 10002 !important;
   }
 
-  /* Closed mobile menu */
+  /* Closed menu */
   .top-menu .top-menu-links,
   .top-menu:hover .top-menu-links,
   .top-menu:focus-within .top-menu-links {
     position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
 
-    width: min(78vw, 300px) !important;
-    padding: 88px 22px 26px 24px !important;
+    top: 115px !important;
+    right: 20px !important;
+
+    /* Only as wide as the longest word */
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 40px) !important;
+
+    padding: 10px 12px !important;
 
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
-    gap: 14px !important;
+    gap: 12px !important;
 
     background: #fff !important;
 
@@ -1036,10 +1044,10 @@ body.film .custom-audio-player button,
     pointer-events: none !important;
     transform: none !important;
 
-    z-index: 10000 !important;
+    z-index: 10001 !important;
   }
 
-  /* Open only when tapped */
+  /* Open when hamburger is tapped */
   .top-menu.is-open .top-menu-links {
     opacity: 1 !important;
     visibility: visible !important;
@@ -1050,5 +1058,6 @@ body.film .custom-audio-player button,
     font-size: 20px !important;
     font-weight: 100 !important;
     line-height: 1.2 !important;
+    white-space: nowrap !important;
   }
 }
