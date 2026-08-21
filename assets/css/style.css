@@ -999,30 +999,21 @@ body.film .custom-audio-player button,
 /* ===== MOBILE MENU ===== */
 @media (max-width: 767px) {
 
-  /* Fixed hamburger in the top-right corner */
+  /* Do not use the nav wrapper for positioning on mobile */
   .top-menu {
-    position: fixed !important;
-    top: 28px !important;
-    right: 20px !important;
-    left: auto !important;
-    bottom: auto !important;
-
-    width: auto !important;
-    height: auto !important;
-
+    position: static !important;
+    width: 0 !important;
+    height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-
-    display: block !important;
-
-    z-index: 10000 !important;
   }
 
-  /* Hamburger */
+  /* Hamburger is attached directly to the phone viewport */
   .top-menu .menu-icon {
-    position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
+    position: fixed !important;
+
+    top: calc(env(safe-area-inset-top) + 18px) !important;
+    right: 20px !important;
     left: auto !important;
     bottom: auto !important;
 
@@ -1047,23 +1038,22 @@ body.film .custom-audio-player button,
     height: 1px !important;
     margin: 0 !important;
     padding: 0 !important;
+    background: #111 !important;
   }
 
-  /* CLOSED MENU */
+  /* Menu panel is also attached directly to the viewport */
   .top-menu .top-menu-links,
   .top-menu:hover .top-menu-links,
   .top-menu:focus-within .top-menu-links {
+    position: fixed !important;
 
-    position: absolute !important;
-
-    top: 34px !important;
-    right: 0 !important;
+    top: calc(env(safe-area-inset-top) + 52px) !important;
+    right: 20px !important;
     left: auto !important;
     bottom: auto !important;
 
     width: max-content !important;
     min-width: 0 !important;
-    max-width: none !important;
     height: auto !important;
 
     margin: 0 !important;
@@ -1072,7 +1062,6 @@ body.film .custom-audio-player button,
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
-    justify-content: flex-start !important;
     gap: 10px !important;
 
     background: #fff !important;
@@ -1086,26 +1075,21 @@ body.film .custom-audio-player button,
     z-index: 10001 !important;
   }
 
-  /* OPEN MENU — controlled only by menu.js */
-  .top-menu.is-open .top-menu-links,
-  .top-menu.is-open:hover .top-menu-links,
-  .top-menu.is-open:focus-within .top-menu-links {
-
+  /* menu.js controls this */
+  .top-menu.is-open .top-menu-links {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
   }
 
-  /* Menu words */
   .top-menu .top-menu-links a {
     display: block !important;
 
     width: auto !important;
-    min-width: 0 !important;
-
     margin: 0 !important;
     padding: 0 !important;
 
+    font-family: "Geist", sans-serif !important;
     font-size: 20px !important;
     font-weight: 100 !important;
     line-height: 1.2 !important;
