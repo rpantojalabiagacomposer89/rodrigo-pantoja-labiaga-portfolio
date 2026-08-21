@@ -977,3 +977,9 @@ body.film .custom-audio-player button,
   height: 1px !important;
   background: #111 !important;
 }
+
+/* Hide the old Home link on Film page */
+.film-home {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
