@@ -949,13 +949,6 @@ body.film .custom-audio-player button,
   transform: translateX(0);
 }
 
-.top-menu-links a {
-  color: #111 !important;
-  text-decoration: none !important;
-  font-family: "Geist", sans-serif !important;
-  font-size: 19px !important;
-  font-weight: 100 !important;
-}
 
 .top-menu .menu-icon {
   position: static !important;
@@ -988,7 +981,7 @@ body.film .custom-audio-player button,
 /* Keep top navigation identical on every page */
 .top-menu-links a {
   font-family: "Geist", sans-serif !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
   line-height: 1 !important;
   font-weight: 100 !important;
 }
