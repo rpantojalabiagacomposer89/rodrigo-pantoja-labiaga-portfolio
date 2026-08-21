@@ -995,3 +995,60 @@ body.film .custom-audio-player button,
   width: 30px !important;
   height: 1px !important;
 }
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 767px) {
+
+  .top-menu {
+    top: 22px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    gap: 0 !important;
+    align-items: flex-start !important;
+  }
+
+  .top-menu .menu-icon {
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+
+  /* Closed mobile menu */
+  .top-menu .top-menu-links,
+  .top-menu:hover .top-menu-links,
+  .top-menu:focus-within .top-menu-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+
+    width: min(78vw, 300px) !important;
+    padding: 88px 22px 26px 24px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 14px !important;
+
+    background: #fff !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+
+    z-index: 10000 !important;
+  }
+
+  /* Open only when tapped */
+  .top-menu.is-open .top-menu-links {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .top-menu-links a {
+    font-size: 20px !important;
+    font-weight: 100 !important;
+    line-height: 1.2 !important;
+  }
+}
