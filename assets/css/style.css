@@ -1002,10 +1002,3 @@ body.film .custom-audio-player button,
   width: 30px !important;
   height: 1px !important;
 }
-
-/* Allow thin Geist glyphs to render outside their text box */
-.top-menu,
-.top-menu-links,
-.top-menu-links a {
-  overflow: visible !important;
-}
