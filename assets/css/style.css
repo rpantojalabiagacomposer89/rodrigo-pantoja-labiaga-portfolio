@@ -1003,7 +1003,9 @@ body.film .custom-audio-player button,
   height: 1px !important;
 }
 
-/* Safari rendering fix for Contact */
-.top-menu-links a:last-child {
-  transform: translateX(0.5px);
+/* Allow thin Geist glyphs to render outside their text box */
+.top-menu,
+.top-menu-links,
+.top-menu-links a {
+  overflow: visible !important;
 }
