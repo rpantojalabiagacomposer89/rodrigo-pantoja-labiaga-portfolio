@@ -12,85 +12,86 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeMenu() {
       menu.classList.remove('is-open');
       button.setAttribute('aria-expanded', 'false');
+      button.blur();
     }
 
-    function alignWithTitle() {
+    function alignMenuWithTitle() {
       if (!mobile.matches || !title) {
         menu.style.removeProperty('top');
-        menu.style.removeProperty('right');
         return;
       }
 
-      const titleBox = title.getBoundingClientRect();
-
-      /*
-        Align the CENTER of the 20px hamburger
-        with the vertical center of the page title.
-      */
-      const hamburgerHeight = 20;
+      const rect = title.getBoundingClientRect();
 
       const top =
         window.scrollY +
-        titleBox.top +
-        ((titleBox.height - hamburgerHeight) / 2);
+        rect.top +
+        ((rect.height - 28) / 2);
 
       menu.style.setProperty(
         'top',
         `${top}px`,
         'important'
       );
-
-      menu.style.setProperty(
-        'right',
-        '20px',
-        'important'
-      );
     }
 
+    /* Hamburger:
+       tap once = open
+       tap again = close
+    */
     button.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
 
-      const willOpen = !menu.classList.contains('is-open');
-
-      if (willOpen) {
+      if (menu.classList.contains('is-open')) {
+        closeMenu();
+      } else {
         menu.classList.add('is-open');
         button.setAttribute('aria-expanded', 'true');
-      } else {
-        closeMenu();
+        button.blur();
       }
-
-      /*
-        Prevent Safari from keeping :focus-within
-        active after tapping the hamburger.
-      */
-      button.blur();
     });
 
+    /* Menu links:
+       explicitly navigate after tapping
+    */
     menu.querySelectorAll('.top-menu-links a').forEach(link => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const destination = link.getAttribute('href');
+
+        closeMenu();
+
+        if (destination) {
+          window.location.href = destination;
+        }
+      });
     });
 
+    /* Tap outside = close */
     document.addEventListener('click', event => {
       if (!menu.contains(event.target)) {
         closeMenu();
       }
     });
 
+    /* Escape = close */
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         closeMenu();
       }
     });
 
-    alignWithTitle();
+    alignMenuWithTitle();
 
-    window.addEventListener('resize', alignWithTitle, {
+    window.addEventListener('resize', alignMenuWithTitle, {
       passive: true
     });
 
-    if (mobile.addEventListener) {
-      mobile.addEventListener('change', alignWithTitle);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(alignMenuWithTitle);
     }
   });
 });
