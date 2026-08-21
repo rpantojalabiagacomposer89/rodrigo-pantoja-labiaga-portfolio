@@ -911,48 +911,37 @@ body.film .custom-audio-player button,
   }
 }
 
-/* Top-right navigation */
+/* ===== BIO TOP MENU ===== */
+
 .top-menu {
   position: fixed !important;
   top: 48px !important;
   right: 64px !important;
   left: auto !important;
   bottom: auto !important;
+  z-index: 9999 !important;
 
   display: flex !important;
-  align-items: center;
-  gap: 32px;
-
-  z-index: 1000;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 32px !important;
 }
 
-/* Hidden links */
 .top-menu-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 28px !important;
+  white-space: nowrap !important;
 
   opacity: 0;
   visibility: hidden;
-  transform: translateX(12px);
+  transform: translateX(10px);
 
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0.2s ease;
-
-  white-space: nowrap;
+  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
 }
 
-.top-menu-links a {
-  color: #111;
-  text-decoration: none;
-  font: inherit;
-  font-size: 20px;
-  font-weight: 100;
-}
-
-/* Reveal links when hovering anywhere over the menu */
 .top-menu:hover .top-menu-links,
 .top-menu:focus-within .top-menu-links {
   opacity: 1;
@@ -960,21 +949,31 @@ body.film .custom-audio-player button,
   transform: translateX(0);
 }
 
-/* Hamburger */
-.menu-icon {
-  width: 30px;
-  height: 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  flex: 0 0 auto;
+.top-menu-links a {
+  color: #111 !important;
+  text-decoration: none !important;
+  font-family: "Geist", sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 100 !important;
 }
 
-.menu-icon span {
-  display: block;
-  width: 30px;
-  height: 1px;
-  background: #111;
+.top-menu .menu-icon {
+  position: static !important;
+  margin: 0 !important;
+
+  width: 30px !important;
+  height: 20px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  flex-shrink: 0;
+}
+
+.top-menu .menu-icon span {
+  display: block !important;
+  width: 30px !important;
+  height: 1px !important;
+  background: #111 !important;
 }
