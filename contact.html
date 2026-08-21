@@ -7,18 +7,56 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
   <main class="page contact-page">
     <h1>Contact</h1>
+
     <form class="contact-form" id="contact-form">
-      <label>Name<input name="name" type="text" autocomplete="name" required></label>
-      <label>Email<input name="email" type="email" autocomplete="email" required></label>
-      <label>Message<textarea name="message" required></textarea></label>
+      <label>
+        Name
+        <input name="name" type="text" autocomplete="name" required>
+      </label>
+
+      <label>
+        Email
+        <input name="email" type="email" autocomplete="email" required>
+      </label>
+
+      <label>
+        Message
+        <textarea name="message" required></textarea>
+      </label>
+
       <button type="submit">Send</button>
     </form>
-    <p class="contact-email"><a href="mailto:rpantojalabiaga.composer@gmail.com">rpantojalabiaga.composer@gmail.com</a></p>
-    <a class="corner-link" href="index.html">Home</a>
+
+    <p class="contact-email">
+      <a href="mailto:rpantojalabiaga.composer@gmail.com">
+        rpantojalabiaga.composer@gmail.com
+      </a>
+    </p>
+
+    <a class="corner-link" href="index.html" style="display:none !important;">Home</a>
   </main>
+
+  <nav class="top-menu">
+    <div class="top-menu-links">
+      <a href="index.html">Home</a>
+      <a href="bio.html">Bio</a>
+      <a href="film.html">Film</a>
+      <a href="works.html">Works</a>
+      <a href="photography.html">Photography</a>
+    </div>
+
+    <a class="menu-icon" href="#" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </nav>
+
   <script src="assets/js/contact.js"></script>
   <script src="assets/js/scale.js"></script>
+
 </body>
 </html>
