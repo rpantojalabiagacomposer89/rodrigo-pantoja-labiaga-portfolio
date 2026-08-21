@@ -35,10 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
-    /* Hamburger:
-       tap once = open
-       tap again = close
-    */
     button.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
@@ -52,32 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    /* Menu links:
-       explicitly navigate after tapping
+    /*
+      IMPORTANT:
+      Do not prevent the link's normal navigation.
+      Just close the menu and let Safari follow href normally.
     */
     menu.querySelectorAll('.top-menu-links a').forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const destination = link.getAttribute('href');
-
+      link.addEventListener('click', () => {
         closeMenu();
-
-        if (destination) {
-          window.location.href = destination;
-        }
       });
     });
 
-    /* Tap outside = close */
     document.addEventListener('click', event => {
       if (!menu.contains(event.target)) {
         closeMenu();
       }
     });
 
-    /* Escape = close */
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         closeMenu();
