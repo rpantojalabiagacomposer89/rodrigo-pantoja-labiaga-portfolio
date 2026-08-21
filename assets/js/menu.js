@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const mobile = window.matchMedia('(max-width: 767px)');
+
   document.querySelectorAll('.top-menu').forEach(menu => {
     const button = menu.querySelector('.menu-icon');
     const title = document.querySelector('main h1');
@@ -12,12 +14,57 @@ document.addEventListener('DOMContentLoaded', () => {
       button.setAttribute('aria-expanded', 'false');
     }
 
+    function alignWithTitle() {
+      if (!mobile.matches || !title) {
+        menu.style.removeProperty('top');
+        menu.style.removeProperty('right');
+        return;
+      }
+
+      const titleBox = title.getBoundingClientRect();
+
+      /*
+        Align the CENTER of the 20px hamburger
+        with the vertical center of the page title.
+      */
+      const hamburgerHeight = 20;
+
+      const top =
+        window.scrollY +
+        titleBox.top +
+        ((titleBox.height - hamburgerHeight) / 2);
+
+      menu.style.setProperty(
+        'top',
+        `${top}px`,
+        'important'
+      );
+
+      menu.style.setProperty(
+        'right',
+        '20px',
+        'important'
+      );
+    }
+
     button.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
 
-      const isOpen = menu.classList.toggle('is-open');
-      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      const willOpen = !menu.classList.contains('is-open');
+
+      if (willOpen) {
+        menu.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      } else {
+        closeMenu();
+      }
+
+      /*
+        Prevent Safari from keeping :focus-within
+        active after tapping the hamburger.
+      */
+      button.blur();
     });
 
     menu.querySelectorAll('.top-menu-links a').forEach(link => {
@@ -36,22 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    /* Mobile only:
-       align hamburger with the page title,
-       but let it scroll away naturally with the page.
-    */
-    if (window.matchMedia('(max-width: 767px)').matches && title) {
-      const titleBox = title.getBoundingClientRect();
+    alignWithTitle();
 
-      menu.style.setProperty('position', 'absolute', 'important');
-      menu.style.setProperty(
-        'top',
-        `${window.scrollY + titleBox.top}px`,
-        'important'
-      );
-      menu.style.setProperty('right', '20px', 'important');
-      menu.style.setProperty('left', 'auto', 'important');
-      menu.style.setProperty('bottom', 'auto', 'important');
+    window.addEventListener('resize', alignWithTitle, {
+      passive: true
+    });
+
+    if (mobile.addEventListener) {
+      mobile.addEventListener('change', alignWithTitle);
     }
   });
 });
