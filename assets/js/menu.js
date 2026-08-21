@@ -1,62 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const mobile = window.matchMedia('(max-width: 767px)');
-
   document.querySelectorAll('.top-menu').forEach(menu => {
-    const button = menu.querySelector('.menu-icon');
-    const title = document.querySelector('main h1');
+    const hamburger = menu.querySelector('.menu-icon');
 
-    if (!button) return;
+    if (!hamburger) return;
 
-    button.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-expanded', 'false');
 
     function closeMenu() {
       menu.classList.remove('is-open');
-      button.setAttribute('aria-expanded', 'false');
-      button.blur();
+      hamburger.setAttribute('aria-expanded', 'false');
     }
 
-    function alignMenuWithTitle() {
-      if (!mobile.matches || !title) {
-        menu.style.removeProperty('top');
-        return;
-      }
-
-      const rect = title.getBoundingClientRect();
-
-      const top =
-        window.scrollY +
-        rect.top +
-        ((rect.height - 28) / 2);
-
-      menu.style.setProperty(
-        'top',
-        `${top}px`,
-        'important'
-      );
-    }
-
-    button.addEventListener('click', event => {
+    hamburger.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
 
-      if (menu.classList.contains('is-open')) {
+      const isOpen = menu.classList.contains('is-open');
+
+      if (isOpen) {
         closeMenu();
       } else {
         menu.classList.add('is-open');
-        button.setAttribute('aria-expanded', 'true');
-        button.blur();
+        hamburger.setAttribute('aria-expanded', 'true');
       }
-    });
-
-    /*
-      IMPORTANT:
-      Do not prevent the link's normal navigation.
-      Just close the menu and let Safari follow href normally.
-    */
-    menu.querySelectorAll('.top-menu-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
     });
 
     document.addEventListener('click', event => {
@@ -70,15 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMenu();
       }
     });
-
-    alignMenuWithTitle();
-
-    window.addEventListener('resize', alignMenuWithTitle, {
-      passive: true
-    });
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(alignMenuWithTitle);
-    }
   });
 });
