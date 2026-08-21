@@ -1002,3 +1002,9 @@ body.film .custom-audio-player button,
   width: 30px !important;
   height: 1px !important;
 }
+
+/* Prevent Contact C from clipping */
+.top-menu-links a:last-child {
+  padding-left: 2px !important;
+  margin-left: -2px !important;
+}
