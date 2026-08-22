@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.top-menu').forEach(menu => {
     const hamburger = menu.querySelector('.menu-icon');
     const title = document.querySelector('main h1');
+
     const isFilmPage = !!document.querySelector('.film-page');
+    const isPhotographyPage =
+      document.title.startsWith('Photography');
 
     if (!hamburger) return;
 
@@ -18,10 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const rect = title.getBoundingClientRect();
 
+      /*
+        Film and Photography need the same tiny vertical correction.
+        All other pages remain unchanged.
+      */
+      const correction =
+        (isFilmPage || isPhotographyPage) ? 2 : 0;
+
       const top =
         window.scrollY +
         rect.top +
-        ((rect.height - 28) / 2);
+        ((rect.height - 28) / 2) +
+        correction;
 
       menu.style.setProperty(
         'top',
@@ -30,11 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
-    function alignAfterScaling() {
+    function alignAfterLayout() {
       /*
-        Film's scale.js runs after menu.js.
-        Wait until scaling has finished, then measure the
-        title's FINAL visible position.
+        Film is affected by scale.js, so wait until its layout
+        has settled before measuring the title.
       */
       if (isFilmPage) {
         requestAnimationFrame(() => {
@@ -67,20 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /*
-      Navigation links are untouched.
+      Navigation links are intentionally untouched.
       Their normal href behavior handles navigation.
     */
 
-    alignAfterScaling();
+    alignAfterLayout();
 
-    window.addEventListener('resize', () => {
-      alignAfterScaling();
-    }, {
-      passive: true
-    });
+    window.addEventListener(
+      'resize',
+      alignAfterLayout,
+      { passive: true }
+    );
 
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(alignAfterScaling);
+      document.fonts.ready.then(alignAfterLayout);
     }
   });
 });
