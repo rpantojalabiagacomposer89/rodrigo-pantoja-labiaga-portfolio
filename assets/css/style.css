@@ -1138,6 +1138,6 @@ body.film .custom-audio-player button,
 /* Film mobile only — align hamburger with menu/title row */
 @media (max-width: 767px) {
   .film-page + .top-menu .menu-icon {
-    top: 20px !important;
+    top: -4px !important;
   }
 }
