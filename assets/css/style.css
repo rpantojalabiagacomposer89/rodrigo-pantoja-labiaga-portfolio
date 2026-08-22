@@ -1134,3 +1134,10 @@ body.film .custom-audio-player button,
     pointer-events: auto !important;
   }
 }
+
+/* Film mobile only — align hamburger with menu/title row */
+@media (max-width: 767px) {
+  .film-page + .top-menu .menu-icon {
+    top: 0 !important;
+  }
+}
