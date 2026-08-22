@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Every other page gets 0px correction.
       */
       const filmCorrection =
-        document.querySelector('.film-page') ? -4 : 0;
+        document.querySelector('.film-page') ? 0 : 0;
 
       const top =
         window.scrollY +
