@@ -1134,3 +1134,10 @@ body.film .custom-audio-player button,
     pointer-events: auto !important;
   }
 }
+
+/* Film only — align hamburger with Selected Film Credits */
+@media (max-width: 767px) {
+  .film-page + .top-menu .menu-icon {
+    top: 7px !important;
+  }
+}
