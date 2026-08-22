@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.top-menu').forEach(menu => {
     const hamburger = menu.querySelector('.menu-icon');
     const title = document.querySelector('main h1');
+    const isFilmPage = !!document.querySelector('.film-page');
 
     if (!hamburger) return;
 
@@ -17,25 +18,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const rect = title.getBoundingClientRect();
 
-      /*
-        Film's title has slightly different line-height geometry.
-        Move ONLY the Film menu 4px upward.
-        Every other page gets 0px correction.
-      */
-      const filmCorrection =
-        document.querySelector('.film-page') ? 0 : 0;
-
       const top =
         window.scrollY +
         rect.top +
-        ((rect.height - 28) / 2) +
-        filmCorrection;
+        ((rect.height - 28) / 2);
 
       menu.style.setProperty(
         'top',
         `${top}px`,
         'important'
       );
+    }
+
+    function alignAfterScaling() {
+      /*
+        Film's scale.js runs after menu.js.
+        Wait until scaling has finished, then measure the
+        title's FINAL visible position.
+      */
+      if (isFilmPage) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(alignMenuWithTitle);
+        });
+      } else {
+        alignMenuWithTitle();
+      }
     }
 
     function openMenu() {
@@ -48,10 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', 'false');
     }
 
-    /*
-      Tap hamburger once = open.
-      Tap the same hamburger again = close.
-    */
     hamburger.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
@@ -64,18 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /*
-      Navigation links are intentionally left alone.
+      Navigation links are untouched.
       Their normal href behavior handles navigation.
     */
 
-    alignMenuWithTitle();
+    alignAfterScaling();
 
-    window.addEventListener('resize', alignMenuWithTitle, {
+    window.addEventListener('resize', () => {
+      alignAfterScaling();
+    }, {
       passive: true
     });
 
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(alignMenuWithTitle);
+      document.fonts.ready.then(alignAfterScaling);
     }
   });
 });
