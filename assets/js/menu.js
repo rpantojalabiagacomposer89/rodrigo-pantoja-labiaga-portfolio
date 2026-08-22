@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         All other pages remain unchanged.
       */
       const correction =
-        (isFilmPage || isPhotographyPage) ? 2 : 0;
+        (isFilmPage || isPhotographyPage) ? 4 : 0;
 
       const top =
         window.scrollY +
